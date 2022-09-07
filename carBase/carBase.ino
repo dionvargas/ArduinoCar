@@ -1,18 +1,34 @@
+
+//Pinos de acionamento do motor esquerdo
 const int m1a = 7;
 const int m1b = 6;
+
+//Pinos de acionamento do motor direito
 const int m2a = 4;
 const int m2b = 3;
 
 void setup() {
-  // put your setup code here, to run once:
   pinMode (m1a, OUTPUT);
   pinMode (m1b, OUTPUT);
   pinMode (m2a, OUTPUT);
   pinMode (m2b, OUTPUT);
+
+  parar();
+  delay(2000);
+
+  //Chama a função que tem o percurso salvo
+  percurso();
+ 
+  // Finaliza o processo
+  parar();
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  
+}
+
+void percurso(){
+  //Codifique aqui o seu percurso
 
 }
 
