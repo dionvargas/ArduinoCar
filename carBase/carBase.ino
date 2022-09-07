@@ -1,11 +1,11 @@
 
 //Pinos de acionamento do motor esquerdo
-const int m1a = 7;
-const int m1b = 6;
+const int m1a = 8;
+const int m1b = 7;
 
 //Pinos de acionamento do motor direito
-const int m2a = 4;
-const int m2b = 3;
+const int m2a = 5;
+const int m2b = 4;
 
 void setup() {
   pinMode (m1a, OUTPUT);

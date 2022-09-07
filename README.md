@@ -16,10 +16,12 @@ Para uso com shields de motores recomento a troca do conjunto de 4 pilhas por um
 Abaixo uma lista de montagem elétrica de cada projeto e o funcionamento dos códigos para implementação.
 
 ### carBase
-Um projeto simples de acionamento de motores para locomover o chassis. Utiliza um módulo [L298N](http://www.handsontec.com/dataspecs/L298N%20Motor%20Driver.pdf) que possui duas pontes H para acionamento dos motores.
+Um projeto simples de acionamento de motores para locomover o chassis. Utiliza um módulo [L298N](http://www.handsontec.com/dataspecs/L298N%20Motor%20Driver.pdf) que possui duas pontes H para acionamento dos motores. A montagem elétrica pode ser vista abaixo:
+
+![Alt text](carBase/montagemElétrica.png)
 
 O código já possui implementação das funções do carro andar para frente, parar, virar para a esquerda, virar para a direita e andar para trás que devem ser utilizadas dentro do método ```percuros()``` sempre acompanhada de uma função ```delay()``` que representa o tempo que o protótipo irá executar aquela função. Ao fim da execução do percurso o protótipo ficará parado.
-Abaixo é apresentado um exemplo do método percuros
+Abaixo é apresentado um exemplo do método percuros.
 
 ``` C++
 void percurso(){
@@ -36,3 +38,6 @@ void percurso(){
   delay(2000);
 }
 ```
+
+#### Links Relacionados
+- [Guia definitivo do L298N](https://blog.eletrogate.com/guia-definitivo-de-uso-da-ponte-h-l298n/)
