@@ -39,7 +39,7 @@ void percurso(){
 }
 ```
 
-### carBaseIntDelay
+### carBaseIntDelay <a id="carBaseIntDelay" />
 Este projeto possui a mesma montagem elétrica que o [carBase](#carBase) no entanto, neste projeto a função ```delay()``` é levada para dentro das funções de movimentação do protótipo. Este recurso deixa o código mais enxuto e fácil de entender.
 Abaixo é apresentado o código do mesmo movimento que o carBase faz porêm com esta nova implementação.
 
@@ -51,6 +51,33 @@ void percurso(){
   paraFrente(2000);
   paraDireita(500);
   paraFrente(2000);
+}
+```
+
+### carSmoothCurve <a id="carSmoothCurve" />
+
+Neste projeto é possível fazer curvas suaves. A montagem sofre algumas alterações comparadas com as anteriores.
+
+![schematicCarBase](carSmoothCurve/carSmoothCurve.svg)
+
+Para essa montagem os jumpers ```en1``` e ```en2``` devem ser reomovidos.
+
+Chamando a função ```acionaMotores(m1, m2, miliSegundos)``` é possível acionar os dois motores ao mesmo tempo e dar uma porcentagem de potência para cada motor onde:
+- ```m1``` representa a potência de aciomamento do primeiro motor. Pode variar de -100 a 100 onde -100 é potência total para trás e 100 potência total para frente;
+- ```m2``` representa a potência de aciomamento do segundo motor. Pode variar de -100 a 100 onde -100 é potência total para trás e 100 potência total para frente;
+- ```miliSegundos``` recebe o tempo que aquela função será executada em milisegundos.
+
+Desta forma se chamarmos a função ```acionaMotores(100, 50, 500)``` o motor 1 será acionado com toda potência para frente e o motor 2 com apenas 50% da potência. Isto fará com que o protótipo faça uma curva suave e não rotacione o próprio eixo como nos exemplos [carBase](#carBase) e [carBaseIntDelay](#carBaseIntDelay).
+Um exemplo de uso da função percurso pode ser visto a seguir.
+
+``` C++
+void percurso(){
+  //Codifique aqui o seu percurso
+  acionaMotores(100, 100, 2000);
+  acionaMotores(100, 50, 500);
+  acionaMotores(100, 100, 2000);
+  acionaMotores(-50, -100, 500);
+  acionaMotores(100, 100, 2000);
 }
 ```
 
