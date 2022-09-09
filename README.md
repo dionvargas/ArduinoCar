@@ -81,5 +81,14 @@ void percurso(){
 }
 ```
 
+### carBluetooth <a id="carBluetooth" />
+
+Neste projeto um módulo [HC-05](https://components101.com/sites/default/files/component_datasheet/HC-05%20Datasheet.pdf) é acoplado ao protótipo para poder controlar o veículo pelo celular. A montagem pode ser vista na figura a seguir.
+
+![schematiccarBluetooth](carBluetooth/carBluetooth.svg)
+
+O projeto foi testado com o app [Bluetooth RC Car](https://play.google.com/store/apps/details?id=braulio.calle.bluetoothRCcontroller) desenvolvido para android.
+Para funcionamento é necessário prévia comunicação do módulo com o celular.
+
 #### Links Relacionados
 - [Guia definitivo do L298N](https://blog.eletrogate.com/guia-definitivo-de-uso-da-ponte-h-l298n/)

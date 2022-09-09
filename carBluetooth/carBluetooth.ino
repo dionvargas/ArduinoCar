@@ -1,4 +1,3 @@
-
 //Pinos de acionamento do motor Direito
 const int m1a = 8;
 const int m1b = 7;
@@ -7,67 +6,67 @@ const int m1b = 7;
 const int m2a = 5;
 const int m2b = 4;
 
+//Valor incial vinda da serial
+char serialMsg = 'S';
+
 void setup() {
-  pinMode (m1a, OUTPUT);
-  pinMode (m1b, OUTPUT);
-  pinMode (m2a, OUTPUT);
-  pinMode (m2b, OUTPUT);
+  Serial.begin(9600);
+
+  pinMode(m1a, OUTPUT);
+  pinMode(m1b, OUTPUT);
+  pinMode(m2a, OUTPUT);
+  pinMode(m2b, OUTPUT);
 
   parar();
-  delay(2000);
-
-  //Chama a função que tem o percurso salvo
-  percurso();
- 
 }
 
 void loop() {
-  
+  serialMsg = Serial.read();
+  switch (serialMsg) {
+    case 'F':
+      paraFrente();
+      break;
+    case 'B':
+      paraTras();
+      break;
+    case 'L':
+      paraEsquerda();
+      break;
+    case 'R':
+      paraDireita();
+      break;
+    case 'S':
+      parar();
+      break;
+  }
 }
 
-void percurso(){
-  //Codifique aqui o seu percurso
-
-}
-
-void paraFrente(int miliSegundos) {
+void paraFrente() {
   digitalWrite(m1a, HIGH);
   digitalWrite(m1b, LOW);
   digitalWrite(m2a, HIGH);
   digitalWrite(m2b, LOW);
-
-  delay(miliSegundos);
-  parar();
 }
 
-void paraTras(int miliSegundos) {
+void paraTras() {
   digitalWrite(m1a, LOW);
   digitalWrite(m1b, HIGH);
   digitalWrite(m2a, LOW);
   digitalWrite(m2b, HIGH);
-  
-  delay(miliSegundos);
-  parar();
 }
 
-void paraDireita(int miliSegundos) {
+void paraDireita() {
   digitalWrite(m1a, LOW);
   digitalWrite(m1b, LOW);
   digitalWrite(m2a, HIGH);
   digitalWrite(m2b, LOW);
-  
-  delay(miliSegundos);
-  parar();
 }
 
-void paraEsquerda(int miliSegundos) {
+void paraEsquerda() {
   digitalWrite(m1a, HIGH);
   digitalWrite(m1b, LOW);
   digitalWrite(m2a, LOW);
   digitalWrite(m2b, LOW);
-  
-  delay(miliSegundos);
-  parar();
 }
 
 void parar() {
